@@ -458,27 +458,75 @@
 /* --- Responsive Layout (Mobile View) --- */
 /* --- Responsive Layout (Mobile View - Short Search Bar) --- */
 
-
+/* --- Mobile View Layout (768px အောက်) --- */
 @media (max-width: 768px) {
-    .desktop-filters {
-        display: none !important;
+    .filter-sticky-bar {
+        background: #ffffff;
+        padding: 10px 15px;
+        border-bottom: 1px solid #eee;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
     }
 
-    .mobile-filter-trigger {
+    .filter-inner-container {
         display: flex;
+        align-items: center;
+        justify-content: space-between; /* Search နဲ့ Button ကို တစ်ဖက်စီ ခွဲမယ် */
+        gap: 12px;
     }
 
+    /* --- Search Bar ကို သေသပ်အောင်လုပ်ခြင်း --- */
     .search-wrapper {
-        /* flex: 1 ကို ဖြုတ်လိုက်ပြီး width အသေ သို့မဟုတ် % နဲ့ ထိန်းပါ */
-        width: 160px; /* Search Bar ကို ၁၈၀ ဖိုးပဲ အကျယ်ထားမယ် */
-        max-width: 180px; 
         position: relative;
+        flex: 1; /* လက်ရှိနေရာလွတ်ကို ယူမယ် */
+        max-width: 220px; /* အရမ်းကြီးမသွားအောင် ကန့်သတ်မယ် */
     }
 
     .search-wrapper input {
         width: 100%;
-        padding: 8px 10px 8px 35px; /* အမြင့် (Padding) ကိုလည်း နည်းနည်း ပြန်လျှော့ထားပါတယ် */
+        padding: 10px 15px 10px 40px;
+        border-radius: 12px; /* အနားသတ်ကို ခေတ်မီအောင် ဝိုင်းမယ် */
+        border: 1.5px solid #f1f5f9;
+        background-color: #f8fafc; /* ခပ်ဖျော့ဖျော့အရောင်လေးနဲ့ ပိုလှပါတယ် */
         font-size: 0.9rem;
+        transition: all 0.3s ease;
+    }
+
+    .search-wrapper input:focus {
+        outline: none;
+        border-color: #002347;
+        background-color: #ffffff;
+        box-shadow: 0 4px 12px rgba(0, 35, 71, 0.08);
+    }
+
+    .search-icon {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #94a3b8;
+        font-size: 0.9rem;
+    }
+
+    /* --- Drawer Button (Filter Button) ကို ပိုလှအောင်လုပ်ခြင်း --- */
+    .mobile-filter-trigger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        background-color: #002347; /* Engineering Theme နဲ့ လိုက်တဲ့ အမှောင်ရောင် */
+        color: #ffffff;
+        border-radius: 12px;
+        cursor: pointer;
+        flex-shrink: 0; /* ပုံစံမပျက်အောင် ထိန်းထားမယ် */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s active;
+    }
+
+    .mobile-filter-trigger:active {
+        transform: scale(0.95); /* နှိပ်လိုက်ရင် တုန်သွားတဲ့ effect လေး */
     }
 }
 
