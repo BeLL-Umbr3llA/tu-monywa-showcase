@@ -9,6 +9,16 @@ const projectsPerPage = 15;
 let currentFilters = { dept: 'all', year: 'all' };
 let currentView = 'grid'; // View mode သိမ်းရန် (grid သို့မဟုတ် list)
 
+window.onload = function() {
+    // စာမျက်နှာ စပွင့်တာနဲ့ အပေါ်ဆုံးကို ရောက်အောင်လုပ်မယ်
+    window.scrollTo(0, 0);
+};
+
+// တစ်ခါတလေ browser က load ဖြစ်ပြီးမှ scroll ပြန်ချတာမျိုးရှိရင် (ပိုသေချာအောင်)
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
 // ၂။ Helper: YouTube ID Extract
 function extractYouTubeId(url) {
     if (!url) return null;
