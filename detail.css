@@ -49,11 +49,10 @@
     transform: translateX(-5px); /* ဘယ်ဘက်ကို နည်းနည်းတိုးသွားမယ် */
     box-shadow: 0 0 15px rgba(255, 204, 0, 0.4);
 }
-
 /* --- Desktop & Tablet (Default) --- */
 .slider-card p {
     text-align: center;
-    margin-top: 0px;
+    margin-top: 15px;
     color: #64748b;
     font-size: 0.9rem; /* 14.4px ခန့် */
     font-weight: 400;
@@ -62,7 +61,7 @@
 /* --- Mobile View (ဖုန်းများအတွက် သီးသန့်) --- */
 @media (max-width: 600px) {
     .slider-card p {
-        margin-top: 0px;    /* ဖုန်းမှာ နေရာလွတ် အရမ်းမများအောင် လျှော့ချခြင်း */
+        margin-top: 10px;    /* ဖုန်းမှာ နေရာလွတ် အရမ်းမများအောင် လျှော့ချခြင်း */
         font-size: 0.75rem;  /* စာလုံးကို ၁၂ ပတ်လည်လောက်ထိ သေးလိုက်ခြင်း */
         color: #94a3b8;      /* ဖုန်းမှာ မျက်စိမရှုပ်အောင် အရောင်ကို နည်းနည်း ထပ်ဖျော့ခြင်း */
         padding: 0 10px;     /* ဘေးဘောင်တွေနဲ့ မကပ်အောင် padding ထည့်ခြင်း */
