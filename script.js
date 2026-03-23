@@ -81,14 +81,16 @@ if (imgWrapper) {
             
             if (youtubeId) {
                 // အကယ်၍ Link က YouTube ဖြစ်နေရင် videoContent ထဲမှာ ပေါင်းထည့်မယ်
-                videoContent += `
-                    <div class="video-slide slide-item">
-                        <iframe src="https://www.youtube.com/embed/${youtubeId}?rel=0&modestbranding=1" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen>
-                        </iframe>
-                    </div>`;
+              videoContent += `
+    <div class="video-slide slide-item">
+        <iframe 
+            src="https://www.youtube-nocookie.com/embed/${youtubeId}?rel=0&modestbranding=1" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen
+            style="width: 100%; height: 100%; aspect-ratio: 16/9;">
+        </iframe>
+    </div>`;
             } else {
                 // ရိုးရိုးပုံဆိုရင် imageContent ထဲမှာ ပေါင်းထည့်မယ်
                 imageContent += `<img src="${url}" alt="Project Image" class="slide-item" onerror="this.src='tumonywa.png'">`;
