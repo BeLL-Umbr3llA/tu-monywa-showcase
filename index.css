@@ -450,18 +450,55 @@
 }
 
 /* --- Responsive Layout --- */
+/* --- Responsive Layout (Mobile View) --- */
 @media (max-width: 768px) {
     .desktop-filters {
         display: none !important;
     }
+
     .mobile-filter-trigger {
         display: flex;
     }
+
+    /* Filter တစ်ခုလုံးကို screen အပြည့်နီးပါး ယူစေခြင်း */
+    .filter-inner-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 10px; /* Search နဲ့ Filter ခလုတ်ကြား အကွာအဝေး */
+        padding: 0 5px;
+    }
+
     .search-wrapper {
-        max-width: 250px; /* ဖုန်းမှာဆိုရင် ၂၅၀ ဖိုးပဲ အကျယ်ပေးမယ် */
-        flex: 1; /* ဖုန်း screen သေးရင်တော့ ရှိတဲ့နေရာလေးထဲမှာ အချိုးကျအောင် flex ပြန်ပေးထားတာပါ */
-    
-}
+        flex: 1; /* လက်ရှိရှိနေတဲ့ နေရာအလွတ် အကုန်လုံးကို ယူလိုက်မှာဖြစ်လို့ အရှည်က အနေတော်ဖြစ်သွားမယ် */
+        max-width: none; /* အရင်ကပေးထားတဲ့ 250px limit ကို ဖယ်လိုက်တာပါ */
+        position: relative;
+    }
+
+    .search-wrapper input {
+        width: 100%; /* Frame ထဲမှာ အပြည့်ဖြစ်အောင် */
+        padding: 10px 15px 10px 40px; /* ဖုန်းနဲ့စာရင် အမြင့်ကို နည်းနည်းလျှော့ပြီး Icon နေရာချန်ထားတာပါ */
+        font-size: 0.95rem;
+        border-radius: 50px;
+        border: 1.5px solid #e2e8f0;
+    }
+
+    .search-icon {
+        left: 15px;
+        font-size: 1rem;
+    }
+
+    /* Mobile Filter ခလုတ် (အဝိုင်းလေး သို့မဟုတ် icon) */
+    .mobile-filter-trigger {
+        flex-shrink: 0; /* ခလုတ်က ပိန်မသွားအောင် */
+        height: 42px;
+        width: 42px;
+        justify-content: center;
+        align-items: center;
+        background: #002347;
+        color: white;
+        border-radius: 50%;
+    }
 }
 /* --- Desktop View (Large Size Tuning) --- */
 @media (min-width: 769px) {
