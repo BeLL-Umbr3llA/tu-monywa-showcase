@@ -228,7 +228,7 @@
 @media (max-width: 500px) {
     #projectGrid {
         /* ဖုန်းမှာ Card က Screen ရဲ့ ၉၀% လောက်အထိ ယူထားပြီး ဘေးကို ၁၅px စီပဲ ချန်ပါမယ် */
-        padding: 0 50px;
+        padding: 0 20px;
         gap: 25px;
     }
     
