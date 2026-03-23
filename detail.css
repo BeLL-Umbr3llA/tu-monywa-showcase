@@ -73,9 +73,11 @@
 /* Header */
 .header-flex {
     display: flex;
-    align-items: stretch; /* Badge အမြင့်ကို Title အမြင့်အတိုင်း အပြည့်ဆွဲဆန့်လိုက်မယ် */
+    align-items: center; /* အပေါ်အောက် ညီအောင် ဆက်ထားပါ */
     gap: 15px;
     margin-bottom: 8px;
+    width: 100%;
+    justify-content: flex-start; /* ဘယ်ဘက်ကို အမြဲကပ်နေစေရန် */
 }
 
 .major-badge {
