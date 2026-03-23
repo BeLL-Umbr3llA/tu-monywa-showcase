@@ -234,6 +234,11 @@
     
     .card {
         max-width: 100%; /* ဖုန်းမှာတော့ အပြည့်နီးပါးယူမှ ကြည့်ကောင်းပါတယ် */
+         
+    }
+     .card:hover { 
+         border-bottom-color: #ffcc00;
+         border-top-color: #ffcc00;
     }
 }
 
@@ -451,55 +456,60 @@
 
 /* --- Responsive Layout --- */
 /* --- Responsive Layout (Mobile View) --- */
+/* --- Responsive Layout (Mobile View - Short Search Bar) --- */
+
+
+
 @media (max-width: 768px) {
-    .desktop-filters {
-        display: none !important;
-    }
-
-    .mobile-filter-trigger {
-        display: flex;
-    }
-
-    /* Filter တစ်ခုလုံးကို screen အပြည့်နီးပါး ယူစေခြင်း */
     .filter-inner-container {
-        width: 100%;
         display: flex;
         align-items: center;
-        gap: 10px; /* Search နဲ့ Filter ခလုတ်ကြား အကွာအဝေး */
-        padding: 0 5px;
+        justify-content: space-between; /* Search နဲ့ Filter ကို ဘေးတစ်ဖက်စီ ကပ်ထားမယ် */
+        width: 100%;
+        padding: 10px 15px;
     }
 
     .search-wrapper {
-        flex: 1; /* လက်ရှိရှိနေတဲ့ နေရာအလွတ် အကုန်လုံးကို ယူလိုက်မှာဖြစ်လို့ အရှည်က အနေတော်ဖြစ်သွားမယ် */
-        max-width: none; /* အရင်ကပေးထားတဲ့ 250px limit ကို ဖယ်လိုက်တာပါ */
+        /* Search Bar ကို screen ရဲ့ 70% ထက် ပိုမကျယ်အောင် ကန့်သတ်လိုက်တာပါ */
+        flex: 0 0 70%; 
+        max-width: 70%;
         position: relative;
     }
 
     .search-wrapper input {
-        width: 100%; /* Frame ထဲမှာ အပြည့်ဖြစ်အောင် */
-        padding: 10px 15px 10px 40px; /* ဖုန်းနဲ့စာရင် အမြင့်ကို နည်းနည်းလျှော့ပြီး Icon နေရာချန်ထားတာပါ */
-        font-size: 0.95rem;
+        width: 100%;
+        padding: 10px 15px 10px 40px;
+        font-size: 0.9rem;
         border-radius: 50px;
         border: 1.5px solid #e2e8f0;
+        background-color: #f8fafc;
     }
 
-    .search-icon {
-        left: 15px;
-        font-size: 1rem;
-    }
-
-    /* Mobile Filter ခလုတ် (အဝိုင်းလေး သို့မဟုတ် icon) */
+    /* ညာဘက်ဆုံးမှာ ရှိနေမယ့် Filter ခလုတ် */
     .mobile-filter-trigger {
-        flex-shrink: 0; /* ခလုတ်က ပိန်မသွားအောင် */
-        height: 42px;
-        width: 42px;
+        display: flex;
+        flex: 0 0 45px; /* ခလုတ်အတွက် နေရာသီးသန့် ချန်မယ် */
+        height: 45px;
+        width: 45px;
         justify-content: center;
         align-items: center;
         background: #002347;
         color: white;
-        border-radius: 50%;
+        border-radius: 12px; /* အဝိုင်းမဟုတ်ဘဲ လေးထောင့်အနားကွေး ပုံစံ */
+        cursor: pointer;
+    }
+
+    .search-icon {
+        left: 15px;
+        font-size: 0.9rem;
+        color: #64748b;
     }
 }
+
+
+
+
+
 /* --- Desktop View (Large Size Tuning) --- */
 @media (min-width: 769px) {
     .filter-inner-container {
