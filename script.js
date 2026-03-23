@@ -345,7 +345,7 @@ function moveSlide(direction) {
     }
 }
 
-// Menu အပြင်ဘက်ထိရင် ပိတ်ရန်
+// ၁။ Menu အပြင်ဘက်ထိရင် ပိတ်ရန် 
 document.addEventListener('click', (event) => {
     const navLinks = document.querySelector('.nav-links');
     const menuToggle = document.querySelector('.menu-toggle');
@@ -354,4 +354,13 @@ document.addEventListener('click', (event) => {
             navLinks.classList.remove('active');
         }
     }
+});
+
+// ၂။ Menu item (link) တွေကို နှိပ်ပြီးရင်လည်း ပိတ်ရန် (အသစ်ဖြည့်ရမည့် code)
+const allLinks = document.querySelectorAll('.nav-links a');
+allLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.classList.remove('active');
+    });
 });
