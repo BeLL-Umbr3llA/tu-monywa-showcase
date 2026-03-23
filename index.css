@@ -463,14 +463,23 @@
     .desktop-filters {
         display: none !important;
     }
+
     .mobile-filter-trigger {
         display: flex;
     }
+
     .search-wrapper {
-        max-width: 200px; /* ဖုန်းမှာဆိုရင် ၂၅၀ ဖိုးပဲ အကျယ်ပေးမယ် */
-        flex: 1; /* ဖုန်း screen သေးရင်တော့ ရှိတဲ့နေရာလေးထဲမှာ အချိုးကျအောင် flex ပြန်ပေးထားတာပါ */
-    
-}
+        /* flex: 1 ကို ဖြုတ်လိုက်ပြီး width အသေ သို့မဟုတ် % နဲ့ ထိန်းပါ */
+        width: 160px; /* Search Bar ကို ၁၈၀ ဖိုးပဲ အကျယ်ထားမယ် */
+        max-width: 180px; 
+        position: relative;
+    }
+
+    .search-wrapper input {
+        width: 100%;
+        padding: 8px 10px 8px 35px; /* အမြင့် (Padding) ကိုလည်း နည်းနည်း ပြန်လျှော့ထားပါတယ် */
+        font-size: 0.9rem;
+    }
 }
 
 
