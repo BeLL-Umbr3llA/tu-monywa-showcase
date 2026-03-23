@@ -455,10 +455,13 @@
 }
 
 /* --- Responsive Layout --- */
-/* --- Responsive Layout (Mobile View) --- */
-/* --- Responsive Layout (Mobile View - Short Search Bar) --- */
+
+
 @media (max-width: 768px) {
-    /* ၁။ Container ကို Flex ပေးပြီး ဘေးတိုက်စီမယ် */
+    .desktop-filters {
+        display: none !important;
+    }
+
     .filter-inner-container {
         display: flex !important;
         align-items: center;
@@ -468,14 +471,18 @@
         width: 100%;
     }
 
-    /* ၂။ Search Bar ကို အကျယ် ကန့်သတ်မယ် */
-    .search-wrapper {
-        flex: 0 1 200px; /* အများဆုံး 200px ထိပဲ ယူမယ် */
-        position: relative;
-        display: block !important;
+    .mobile-filter-trigger {
+        display: flex;
     }
 
-    .search-wrapper input {
+    .search-wrapper {
+        /* flex: 1 ကို ဖြုတ်လိုက်ပြီး width အသေ သို့မဟုတ် % နဲ့ ထိန်းပါ */
+        width: 180px; /* Search Bar ကို ၁၈၀ ဖိုးပဲ အကျယ်ထားမယ် */
+        max-width: 200px; 
+        position: relative;
+    }
+
+   .search-wrapper input {
         width: 100%;
         height: 40px;
         padding: 0 10px 0 35px;
@@ -483,34 +490,6 @@
         border: 1px solid #ddd;
         font-size: 14px;
         background: #f9f9f9;
-    }
-
-    .search-icon {
-        position: absolute;
-        left: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 14px;
-        color: #888;
-    }
-
-    /* ၃။ Drawer Button (Filter Button) */
-    .mobile-filter-trigger {
-        display: flex !important; /* ဒါက Drawer ဖွင့်မယ့် ခလုတ်ပါ */
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        background: #002347;
-        color: white;
-        border-radius: 10px;
-        flex-shrink: 0; /* ပုံစံမပျက်အောင် */
-        cursor: pointer;
-    }
-
-    /* Desktop က Filter တွေကို ဖျောက်ထားမယ် */
-    .desktop-filters {
-        display: none !important;
     }
 }
 
