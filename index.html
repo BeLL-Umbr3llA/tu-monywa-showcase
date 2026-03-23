@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TU Monywa | Engineering Projects</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div id="loading-overlay">
+        <div class="loading-container">
+            <div class="loading-image"></div>
+            
+            <span class="loading-text">TU - MONYWA</span>
+            <div class="loading-bar-container">
+                <div class="loading-bar-fill"></div>
+            </div>
+            <p class="loading-sub">RESEARCH & PROJECT HUB</p>
+        </div>
+    </div>
+
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">TU MONYWA</div>
+
+            <div class="menu-toggle" id="mobile-menu" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#aboutWeb">About</a></li>
+                <li><a href="#contactTU">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="main-header">
+        <div class="header-overlay">
+            <h1>Technological University (Monywa)</h1>
+            <p>INNOVATION HUB | Engineering Project Showcase</p>
+        </div>
+    </header>
+    <div class="filter-sticky-bar">
+        <div class="filter-inner-container">
+            <div class="search-wrapper">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="projectSearch" placeholder="Search by project name..." onkeyup="filterSelection()">
+            </div>
+
+        <div class="filter-controls-group">
+            <div class="desktop-filters">
+                <select id="dept-select" class="smart-select" onchange="filterSelection()">
+                    <option value="all">All Departments</option>
+                    <option value="civil">Civil Engineering(Civil)</option>
+                    <option value="ec">Electronic Engineerin(EC)</option>
+                    <option value="ep">Electrical Power(EP)</option>
+                    <option value="mech">Mechanical Engineering(Mech)</option>
+                    <option value="it">Information Technology(CEIT)</option>
+                </select>
+                <select id="year-select" class="smart-select" onchange="filterSelection()">
+                    <option value="all">Academic Years</option>
+                    <option value="2022-23">2022-23</option>
+                    <option value="2023-24">2023-24</option>
+                    <option value="2024-25">2024-25</option>
+                    <option value="2025-26">2025-26</option>
+                    <option value="2026-27">2026-27</option>
+                    <option value="2027-28">2027-28</option>
+                    <option value="2028-29">2028-29</option>
+                </select>
+            </div>
+
+            <div class="desktop-view-switcher">
+                <button onclick="setView('grid')" id="gridTab" class="view-btn active" title="Grid View">
+                    <i class="fas fa-th-large"></i>
+                </button>
+                <button onclick="setView('list')" id="listTab" class="view-btn" title="List View">
+                    <i class="fas fa-list"></i>
+                </button>
+            </div>
+            
+            <button class="mobile-filter-trigger" onclick="toggleDrawer(true)">
+                <i class="fas fa-sliders-h"></i> <span>Filter</span>
+            </button>
+         </div>
+        </div>
+    </div>
+    
+    <div class="filter-drawer-overlay" id="drawerOverlay" onclick="toggleDrawer(false)"></div>
+    
+    <div class="filter-drawer" id="filterDrawer">
+        <div class="drawer-header">
+            <h3>Filter Projects</h3>
+            <button class="close-drawer" onclick="toggleDrawer(false)">&times;</button>
+        </div>
+        
+        <div class="drawer-body">
+
+            <div class="filter-section-group">
+                <label>Display View</label>
+                <div class="view-tabs-mobile">
+                    <button onclick="setView('grid')" id="gridTabMobile" class="tab-btn-m active">
+                        <i class="fas fa-th-large"></i> Grid
+                    </button>
+                    <button onclick="setView('list')" id="listTabMobile" class="tab-btn-m">
+                        <i class="fas fa-list"></i> List
+                    </button>
+                </div>
+            </div>
+
+            <div class="filter-section-group">
+                <label>Department</label>
+                <div class="drawer-pills" id="mobileDeptPills">
+                    
+                    <button class="pill active" onclick="selectPill('dept', 'all', this)">All Departments</button>
+                    <button class="pill" onclick="selectPill('dept', 'civil', this)">Civil Engineering</button>
+                    <button class="pill" onclick="selectPill('dept', 'ec', this)">Electronic Engineering</button>
+                    <button class="pill" onclick="selectPill('dept', 'ep', this)">Electrical Power</button>
+                    <button class="pill" onclick="selectPill('dept', 'mech', this)">Mechanical Engineering</button>
+                    <button class="pill" onclick="selectPill('dept', 'it', this)">Information Technology(CEIT)</button>
+                </div>
+            </div>
+    
+            <div class="filter-section-group">
+                <label>Academic Year</label>
+                <div class="drawer-pills" id="mobileYearPills">
+                    <button class="pill active" onclick="selectPill('year', 'all', this)">All Years</button>
+                    <button class="pill" onclick="selectPill('year', '2022-23', this)">2022-23</button>
+                    <button class="pill" onclick="selectPill('year', '2023-24', this)">2023-24</button>
+                    <button class="pill" onclick="selectPill('year', '2024-25', this)">2024-25</button>
+                    <button class="pill" onclick="selectPill('year', '2025-26', this)">2025-26</button>
+                    <button class="pill" onclick="selectPill('year', '2026-27', this)">2026-27</button>
+                    <button class="pill" onclick="selectPill('year', '2027-28', this)">2027-28</button>
+                    <button class="pill" onclick="selectPill('year', '2028-29', this)">2028-29</button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="drawer-footer">
+            <button class="apply-btn" onclick="toggleDrawer(false)">Apply Filters</button>
+        </div>
+    </div>
+
+    <main class="container" id="projectGrid"></main>
+    <div id="pagination-container" class="pagination"></div>
+
+    <script src="script.js"></script>
+</body>
+
+<footer class="main-footer">
+    <div class="footer-top">
+        <div class="footer-grid">
+            <div class="footer-col about-col">
+                <h3 class="footer-title" id="aboutWeb">About Showcase</h3>
+                <p>ဤစာမျက်နှာသည် နည်းပညာတက္ကသိုလ် (မုံရွာ) မှ ကျောင်းသား၊ ကျောင်းသူများ၏ လက်တွေ့အသုံးချ အင်ဂျင်နီယာဘာသာရပ်ဆိုင်ရာ ပရောဂျက်များကို စုစည်းဖော်ပြထားခြင်း ဖြစ်သည်။</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col contact-col">
+                <h3 class="footer-title" id="contactTU">Contact Info</h3>
+                <ul class="contact-list">
+                    <li><i class="fas fa-university"></i> Technological University (Monywa), Sagaing Region</li>
+                    <li><i class="fas fa-envelope"></i> info@tumonywa.edu.mm</li>
+                    <li><i class="fas fa-phone"></i> +95 71 23456</li>
+                </ul>
+            </div>
+
+            <div class="footer-col motto-col">
+                <h3 class="footer-title">Our Vision</h3>
+                <p class="motto-text">"Empowering Tomorrow through Engineering Excellence"</p>
+              
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="bottom-container">
+            <p>Copyright &copy; <span id="current-year"></span> Technological University(Monywa). All Rights Reserved.</p>
+            <p class="dev-info">Designed & Developed by <span class="author-highlight">Mg Aung Ko Phyoe (EC)</span></p>
+        </div>
+    </div>
+</footer>
+</html>

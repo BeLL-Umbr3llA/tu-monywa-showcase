@@ -1,0 +1,486 @@
+/* --- Global Settings & Variables --- */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Noto+Sans+Myanmar:wght@300;400;700&display=swap');
+
+:root {
+    --tu-blue: #002347;
+    --tu-gold: #ffcc00;
+    --tu-light-blue: #003d7a;
+    --text-white: #ffffff;
+    --bg-light: #f4f7f9;
+}
+
+body {
+    margin: 0;
+    font-family: 'Noto Sans Myanmar', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--tu-blue);
+    overflow-x: hidden;
+}
+
+/* Loading Overlay တစ်ခုလုံး */
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* နက်မှောင်သော Theme */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* အပေါ်ဆုံးမှာ ရှိစေရန် */
+    color: white;
+}
+
+/* Loading Container */
+.loading-container {
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+}
+
+/* --- Header & Title --- */
+.header-flex {
+    display: flex;
+    align-items: baseline;
+    justify-content: center; /* အလယ်ဗဟိုမှာ ညီအောင် */
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.major-badge {
+    background: #ffcc00;
+    color: #1a2d42;
+    padding: 6px 15px;
+    font-weight: bold;
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+#p-title {
+    font-size: 2.8rem;
+    color: #ffcc00;
+    margin: 0 !important;
+    line-height: 1;
+}
+
+/* --- Back Link --- */
+.top-nav {
+    margin-bottom: 20px;
+}
+.back-link {
+    text-decoration: none;
+    color: #cccccc;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+}
+
+
+/* --- ၁။ Background Overlay (Clean & Light) --- */
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Engineering Paper ပုံစံ Light Gray/Blueish White */
+    background-color: #f4f7f9; 
+    background-image: 
+        linear-gradient(rgba(0, 102, 204, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 102, 204, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px; /* Blueprint Grid ပုံစံ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: none !important;
+}
+
+.loading-container {
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+}
+
+/* --- ၂။ Photo Card (Floating Design) --- */
+.loading-image {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin: 0 auto 30px auto;
+    background-image: url('tumonywa.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    /* ရွှေရောင်ဘောင်ပါးပါးလေး */
+    border: 2px solid var(--tu-gold); 
+    overflow: hidden;
+    /* Soft Shadow ပေးပြီး ကြွနေအောင်လုပ်မယ် */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); 
+}
+
+/* Scanning Line (Engineering Scan) */
+.loading-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #ffcc00;
+    box-shadow: 0 0 15px #ffcc00;
+    z-index: 5;
+    animation: scanMove 3s linear infinite;
+}
+
+/* --- ၃။ Typography (Modern & Bold) --- */
+.loading-text {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.6rem;
+    color: #1a2d42; /* Dark Blue-Black */
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Loading Bar */
+.loading-bar-container {
+    width: 180px;
+    height: 4px;
+    background: rgba(26, 45, 66, 0.1);
+    margin: 15px auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.loading-bar-fill {
+    width: 100%;
+    height: 100%;
+    background: #ffcc00;
+    transform: translateX(-100%);
+    animation: barLoading 2s infinite ease-in-out;
+}
+
+.loading-sub {
+    color: #555;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+/* --- ၄။ Animations --- */
+@keyframes scanMove {
+    0% { top: 0; }
+    100% { top: 100%; }
+}
+
+@keyframes barLoading {
+    0% { transform: translateX(-100%); }
+    50% { transform: translateX(0%); }
+    100% { transform: translateX(100%); }
+}
+
+/* --- ၅။ Mobile Adjustment --- */
+@media (max-width: 768px) {
+    .loading-image { height: 220px; }
+    .loading-text { font-size: 1.2rem; letter-spacing: 3px; }
+    #loading-overlay { background-size: 20px 20px; }
+}
+
+
+
+
+
+/* --- ၂။ Navbar (Desktop & Mobile) --- */
+.navbar {
+    background: #001f3f;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 2000;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    color: var(--tu-gold);
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover { color: var(--tu-gold); }
+
+.menu-toggle {
+    display: none;
+    color: var(--tu-gold);
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* Navbar Mobile Responsive */
+@media (max-width: 768px) {
+    .menu-toggle { display: block !important; }
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 70px; left: 0; width: 100%;
+        background: #001f3f;
+        flex-direction: column !important;
+        padding: 20px 0;
+        text-align: center;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+    }
+    .nav-links.active { display: flex !important; }
+    .nav-links li { padding: 10px 0; }
+}
+
+
+/* --- Multi-column Footer Styling --- */
+.main-footer {
+    background-color: #001a35; /* Deep TU Blue */
+    color: #e2e8f0;
+    padding-top: 80px;
+    margin-top: 100px;
+    /* Gold Accent Line ကို ပိုပါးပြီး Glow ဖြစ်အောင် လုပ်ထားပါတယ် */
+    border-top: 3px solid var(--tu-gold);
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.footer-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px 60px;
+    display: grid;
+    /* Desktop မှာ Grid ချိုးပုံကို ပိုမျှအောင် ညှိထားပါတယ် */
+    grid-template-columns: 1.2fr 1fr 0.8fr; 
+    gap: 50px;
+}
+
+.footer-title {
+    color: var(--tu-gold);
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+}
+
+/* ခေါင်းစဉ်အောက်က အလှဆင်မျဉ်းတိုလေး */
+.footer-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 30px;
+    height: 2px;
+    background: var(--tu-gold);
+}
+
+/* About Column */
+.about-col p {
+    line-height: 1.8;
+    color: #94a3b8; /* စာသားကို အဖြူကြီးမဟုတ်ဘဲ နည်းနည်းဖျော့ထားတာက ပို Premium ဆန်ပါတယ် */
+    font-size: 0.95rem;
+}
+
+/* Contact List */
+.contact-list {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-list li {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+    transition: 0.3s;
+}
+
+/* Icon Box Style */
+.contact-list i {
+    color: var(--tu-gold);
+    background: rgba(255, 204, 0, 0.1);
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+/* Motto Column */
+.motto-text {
+    font-style: italic;
+    color: var(--white);
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.univ-sub {
+    font-size: 0.8rem;
+    color: var(--tu-gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Social Links - Modern Rounded Square */
+.social-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.social-links a {
+    width: 42px;
+    height: 42px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.social-links a:hover {
+    background: var(--tu-gold);
+    color: #001a35;
+    transform: translateY(-5px) rotate(8deg);
+    border-color: var(--tu-gold);
+}
+
+/* --- Footer Bottom Bar --- */
+.footer-bottom {
+    background: #001226; /* ပိုရင့်တဲ့ အပြာရောင် */
+    padding: 25px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.bottom-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bottom-container p {
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+
+/* Designed & Developed by အပိုင်း */
+.dev-info {
+    display: flex;
+    align-items: center;
+    list-style: none; /* Bullet point ရှိနေရင် ဖျောက်ဖို့ပါ */
+}
+/* Developer Tag Highlight */
+.author-highlight {
+    color: var(--tu-gold);
+    font-weight: 600;
+    margin-left: 5px; /* စာသားနဲ့ နည်းနည်း ခွာလိုက်တာပါ */
+    border-bottom: 1px solid rgba(255, 204, 0, 0.3); /* Underline ကို ပိုပါးလိုက်ပါတယ် */
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    .footer-title::after { left: 50%; transform: translateX(-50%); }
+    .contact-list li { justify-content: center; }
+    .social-links { justify-content: center; }
+    .bottom-container { 
+        flex-direction: column; 
+        gap: 15px; 
+    }
+}
+/* --- Mobile View Optimization (768px အောက် ဖုန်းများအတွက်) --- */
+@media (max-width: 768px) {
+    
+
+    /* ၄။ Footer ထဲက Contact Cards များကို တစ်ခုစီ ပေါ်အောင်လုပ်ခြင်း */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+        padding-bottom: 40px;
+    }
+
+    .contact-list li {
+        justify-content: center; /* စာသားကို အလယ်ပို့ရန် */
+        font-size: 0.9rem;
+    }
+
+    /* ၅။ Footer Bottom (Copyright & Dev Info) */
+    .footer-bottom {
+        padding: 20px 15px;
+    }
+
+    .bottom-container {
+        flex-direction: column; /* အပေါ်အောက် စီလိုက်တာ ပိုကြည့်ကောင်းပါတယ် */
+        gap: 8px;
+        text-align: center;
+    }
+
+    .bottom-container p {
+        font-size: 0.75rem; /* စာသားကို သေးသေးလေးနဲ့ ရှင်းရှင်းလေးဖြစ်အောင် */
+        line-height: 1.5;
+    }
+
+    .dev-info {
+        margin-top: 5px;
+        display: block; /* Bullet point/Dot တွေ လုံးဝမထွက်အောင်ပါ */
+    }
+
+    /* ၆။ Project Cards အရွယ်အစား ညှိခြင်း */
+    .container {
+        grid-template-columns: 1fr; /* ဖုန်းမှာ တစ်ကတ်ချင်းစီပဲ ပြပါ */
+        padding: 0 15px;
+        margin-top: 50px;
+    }
+}

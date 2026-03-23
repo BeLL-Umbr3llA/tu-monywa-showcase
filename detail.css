@@ -1,0 +1,257 @@
+
+/* Navigation Container */
+.top-nav {
+    padding: 20px 0;
+    margin-bottom: 10px;
+   
+    display: flex;
+    align-items: center;
+}
+
+/* Back Link Style */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 12px;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 50px; /* ဆွဲဆောင်မှုရှိသော ပုံစံ */
+}
+
+/* Icon ဝိုင်းလေး */
+.back-icon {
+    width: 35px;
+    height: 35px;
+    background: rgba(255, 204, 0, 0.1); /* အဝါရောင်ဖျော့ */
+    color: #ffcc00; /* ရွှေအဝါရောင် */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 204, 0, 0.3);
+    transition: 0.3s;
+   
+}
+
+/* စာသားပုံစံ */
+.back-text {
+    color: #cbd5e1; /* မီးခိုးဖျော့ (မျက်စိအေးသောအရောင်) */
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Hover Effect (ကြွလာပြီး အရောင်တောက်လာစေရန်) */
+.back-link:hover .back-icon {
+    background: #ffcc00;
+    color: #1a2d42;
+    transform: translateX(-5px); /* ဘယ်ဘက်ကို နည်းနည်းတိုးသွားမယ် */
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.4);
+}
+
+.back-link:hover .back-text {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+/* Mobile အတွက် အနည်းငယ်ညှိရန် */
+@media (max-width: 600px) {
+    .top-nav {
+        padding: 15px 0;
+    }
+    .back-text {
+        font-size: 0.85rem;
+    }
+}
+
+
+/* Layout အခြေခံ */
+.detail-view { background-color: #1a2d42; color: #ffffff; padding: 20px 0; min-height: 100vh; }
+.detail-container { max-width: 1100px; margin: auto; padding: 0 20px; }
+
+/* Header */
+.header-flex {
+    display: flex;
+    align-items: stretch; /* Badge အမြင့်ကို Title အမြင့်အတိုင်း အပြည့်ဆွဲဆန့်လိုက်မယ် */
+    gap: 15px;
+    margin-bottom: 8px;
+}
+
+.major-badge {
+    background: #ffcc00;
+    color: #1a2d42;
+    padding: 0 20px;       /* အပေါ်အောက် padding ကို 0 ထားပြီး height နဲ့ ထိန်းမယ် */
+    font-weight: bold;
+    font-size: 1.1rem;
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+    
+    display: flex;         /* စာလုံးကို အလယ်ပို့ရန် */
+    align-items: center;   /* စာလုံးကို Vertical Center ညှိရန် */
+    justify-content: center;
+    
+    white-space: nowrap;
+    min-height: 100%;      /* Title ရဲ့ အမြင့်အတိုင်း အပြည့်ယူမယ် */
+}
+
+#p-title {
+    font-size: 2.5rem;     /* Size ကို နည်းနည်း ထပ်တိုးလိုက်တယ် */
+    color: #ffcc00;
+    margin: 0 !important;
+    line-height: 1.1;      /* Title ရဲ့ အမြင့်ကို သတ်မှတ်တယ် */
+    display: block;
+}
+
+.p-sub-info {
+    font-size: 1rem;
+    color: #ccc;
+    margin-top: 5px;
+}
+.p-sub-info { color: #cbd5e1; font-size: 0.95rem; margin-bottom: 15px; }
+
+/* Screen အကျယ် 768px ထက် ငယ်သွားရင် (Mobile/Tablet) */
+@media (max-width: 768px) {
+    .header-flex {
+        flex-direction: column; /* အပေါ်အောက် ပြန်စီမယ် */
+        align-items: flex-start; /* ဘယ်ဘက်ကပ်မယ် */
+        gap: 10px;               /* Badge နဲ့ Title ကြား အကွာအဝေး */
+    }
+
+    .major-badge {
+        min-height: auto;        /* Title အမြင့်အတိုင်း အပြည့်ယူတာကို ဖျက်မယ် */
+        height: 28px;            /* အမြင့်ကို သတ်သတ်မှတ်မှတ် ထားမယ် */
+        padding: 4px 15px;
+        font-size: 0.8rem;
+        clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%); /* ပုံစံလေး ပြန်ထိန်းမယ် */
+    }
+
+    #p-title {
+        font-size: 1.6rem;       /* Mobile မှာ Title အရမ်းမကြီးအောင် လျှော့မယ် */
+        line-height: 1.2;
+    }
+
+    .p-sub-info {
+        font-size: 0.85rem;      /* Year/Rating စာသားကိုလည်း နည်းနည်းလျှော့မယ် */
+        margin-top: 8px;
+    }
+}
+
+
+
+/* Grid System - Desktop မှာ ၂ ခုယှဉ်၊ Height ညီစေရန် */
+.detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; align-items: stretch; }
+
+.detail-card { 
+    background: #0d1b2a; border: 1px solid #2a4158; border-radius: 16px; padding: 25px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3); display: flex; flex-direction: column; 
+}
+
+.full-width { grid-column: span 2; } /* Conclusion ကို အပြည့်ပေးလိုက်တာ ပိုလှပါတယ် */
+
+.detail-card h3 { color: #ffcc00; font-size: 1.2rem; border-bottom: 1px solid rgba(255,204,0,0.1); padding-bottom: 15px; margin-bottom: 15px; }
+
+/* Modern Slider with Arrows */
+.slider-container { position: relative; width: 100%; height: 350px; border-radius: 12px; overflow: hidden; background: #000; }
+.project-image-preview { display: flex; width: 100%; height: 100%; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; }
+.project-image-preview::-webkit-scrollbar { display: none; }
+.project-image-preview img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: contain; scroll-snap-align: center; }
+
+.slider-btn { 
+    position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.6); 
+    color: #ffcc00; border: none; padding: 15px 10px; cursor: pointer; font-size: 1.5rem; z-index: 5; transition: 0.3s;
+}
+.slider-btn:hover { background: #ffcc00; color: #1a2d42; }
+.prev { left: 0; border-radius: 0 5px 5px 0; }
+.next { right: 0; border-radius: 5px 0 0 5px; }
+
+
+/* Author Container ကို flex ပေးပြီး ဘေးတိုက်စီမယ် */
+#p-authors {
+    display: flex;
+    flex-wrap: wrap; /* နေရာမဆန့်ရင် အောက်ကြောင်းဆင်းမယ် */
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Author တစ်ယောက်ချင်းစီအတွက် Card Frame */
+/* Author တွေ စုနေမယ့်နေရာ */
+#p-authors {
+    display: flex;
+    flex-wrap: wrap; /* နာမည်များရင် အောက်ကြောင်းဆင်းရန် */
+    gap: 12px;
+    margin-top: 15px;
+}
+
+/* နာမည်တစ်ခုချင်းစီအတွက် Card Frame */
+.author-card {
+    background: rgba(255, 204, 0, 0.1); /* အဝါရောင်ဖျော့ဖျော့ background */
+    color: #ffcc00; /* အဝါရောင်စာသား */
+    border: 1px solid rgba(255, 204, 0, 0.4); /* အဝါရောင်ဘောင် */
+    padding: 8px 16px;
+    border-radius: 12px; /* ထောင့်လုံးလုံးလေး */
+    font-size: 0.95rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* Hover လုပ်ရင် အရောင်တောက်လာစေရန် */
+.author-card:hover {
+    background: #ffcc00;
+    color: #0d1b2a;
+    transform: translateY(-3px);
+}
+.text-content { line-height: 1.8; color: #e2e8f0; flex-grow: 1; }
+.process-list { list-style: none; padding: 0; }
+.process-list li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+.process-list li::before { content: "•"; color: #ffcc00; position: absolute; left: 0; font-weight: bold; }
+
+
+/* Slider အတွင်းက Video Slide ကို အချိုးကျစေရန် */
+
+
+/* Slider ထဲက Video အတွက် */
+/* Slider အတွင်းက item များ (ပုံရော ဗီဒီယိုရော) */
+#p-img-wrapper > img, 
+#p-img-wrapper > .video-slide {
+    flex: 0 0 100%; /* Slider ရဲ့ အကျယ်အတိုင်း ၁၀၀% ယူမည် */
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: center;
+}
+
+/* Video Slide ကို နေရာချခြင်း */
+/* Slider ထဲက element တိုင်းကို နေရာအပြည့် ဝင်စေရန် */
+#p-img-wrapper .slide-item {
+    flex: 0 0 100% !important; /* Slider width အပြည့် ယူမည် */
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain; /* ပုံတွေအတွက် */
+}
+
+/* Video slide အတွက် */
+.video-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+}
+
+.video-slide iframe {
+    width: 100%;
+    height: 100%;
+}
+
+/* Arrow ခလုတ်တွေ Video ပေါ်မှာ ပေါ်နေဖို့ */
+.slider-btn {
+    z-index: 10;
+}
+/* Responsive */
+@media (max-width: 850px) {
+    .detail-grid { grid-template-columns: 1fr; }
+    .full-width { grid-column: span 1; }
+    .slider-container { height: 250px; }
+}

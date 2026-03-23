@@ -1,0 +1,904 @@
+
+/* --- Root Variables for Consistency --- */
+:root {
+    --tu-blue: #002347;
+    --tu-gold: #ffcc00;
+    --bg-light: #f8fafc;
+    --border-color: #e2e8f0;
+    --text-main: #1e293b;
+    --white: #ffffff;
+    
+    --text-muted: #64748b;
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.02);
+    --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.1);
+}
+/* --- Root Variables --- */
+
+
+/* --- Header Section --- */
+.main-header {
+    height: 50vh;
+    background: linear-gradient(rgba(0, 35, 71, 0.75), rgba(0, 35, 71, 0.75)),
+                url('./tumonywa.png') center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.main-header h1 {
+    color: var(--tu-gold);
+    font-size: 2.8rem;
+    margin: 0;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.main-header p {
+    color: var(--text-white);
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+/* --- Filter Buttons Section --- */
+.filter-wrapper {
+    padding: 30px 0;
+    text-align: center;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.btn {
+    min-width: 110px;
+    background: white;
+    border: 2px solid var(--tu-blue);
+    color: var(--tu-blue);
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.btn.active, .btn:hover {
+    background: var(--tu-blue) !important;
+    color: var(--tu-gold) !important;
+    border-color: var(--tu-gold) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 31, 63, 0.3);
+}
+
+/* Mobile Dropdown (Specific for Home) */
+@media (max-width: 768px) {
+    .filter-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+    .filter-container .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    .main-header h1 { font-size: 1.8rem; }
+}
+
+#projectGrid {
+    display: grid;
+    /* ⭐ auto-fit အစား auto-fill ကို သုံးလိုက်ပါ ⭐ */
+    /* auto-fill က Card နည်းနေရင်တောင် ကျန်တဲ့နေရာတွေကို ကားမချဲ့ဘဲ ကွက်လပ်အတိုင်း ထားပါတယ် */
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+    
+    gap: clamp(20px, 4vw, 35px);
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 clamp(15px, 5vw, 40px);
+}
+
+/* Card ရဲ့ အချိုးအစား မပျက်စေရန် အပိုဆောင်း ထိန်းညှိချက် */
+.card {
+    background: #ffffff;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    /* Card က 320px ထက် ပိုပြီး အရမ်းကားမထွက်သွားအောင် ကန့်သတ်ထားနိုင်ပါတယ် */
+    max-width: 400px; 
+    width: 100%;
+    margin: 0; /* Grid က နေရာချပေးမှာမို့ margin မလိုပါ */
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+}
+
+/* --- ၂။ The Master Card --- */
+.card {
+    background: #ffffff;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid rgba(19, 1, 1, 0.06);
+    overflow: hidden;
+    height: 100%;
+    border-bottom: 5px solid #0d1b2a;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    border-top-width:2px  ;
+    border-top-color:var(--tu-blue) ;
+    border-right-width:2px  ;
+    border-right-color:var(--white) ;
+    border-left-width:2px  ;
+    border-left-color:var(--white) ;
+}
+
+/* --- ၃။ Image Area (1000x600 Fixed Ratio - 5:3) --- */
+.card-img-wrapper {
+    width: 100%;
+    /* အချိုးအစားကို Mobile ရော Desktop ရောမှာ ၅:၃ အတိုင်း တိတိကျကျ ထိန်းထားသည် */
+    aspect-ratio: 1000 / 600; 
+    position: relative;
+    background-color: #f8fafc;
+    overflow: hidden;
+}
+
+/* padding-bottom အစား aspect-ratio သုံးလိုက်လို့ ပိုပြီး တိကျသွားပါပြီ */
+.card img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: contain; 
+    padding: clamp(8px, 2vw, 15px);
+}
+
+/* --- ၄။ Content Area (Fluid Typography) --- */
+.card-info {
+    padding: clamp(15px, 3vw, 25px);
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Major Tag Style */
+.major-label {
+    font-size: clamp(0.6rem, 1.5vw, 0.7rem);
+    font-weight: 800;
+    color: #0d1b2a;
+    background: rgba(13, 27, 42, 0.06);
+    padding: 4px 12px;
+    border-radius: 50px;
+    display: inline-block;
+    margin: 0 auto;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* ⭐ Title: Screen အလိုက် စာလုံးဆိုဒ် အလိုအလျောက် ပြောင်းလဲမည် ⭐ */
+.card h3 {
+    margin: 0;
+    /* ဖုန်းမှာ 1rem ကနေ Desktop မှာ 1.2rem အထိ Screen အလိုက် အိခနဲ ပြောင်းပါမယ် */
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: #1e293b;
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+/* Title Underline */
+.card h3::after {
+    content: '';
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--tu-blue);
+    margin: clamp(8px, 2vw, 12px) auto 0;
+    border-radius: 10px;
+    transition: width 0.4s ease;
+}
+
+.card:hover h3::after {
+    width: 50px;
+     background: var(--tu-gold);
+
+}
+
+/* --- ၅။ Hover Effect (Only for Desktop/Mouse) --- */
+@media (hover: hover) {
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(13, 27, 42, 0.1);
+        border-bottom-color: #ffcc00;
+         border-top-color: #ffcc00;
+         /* border-left-color: #ffcc00;
+           border-right-color: #ffcc00;*/
+    }
+}
+
+/* --- ၆။ Mobile Specific Tweak --- */
+@media (max-width: 500px) {
+    #projectGrid {
+        /* ဖုန်းမှာ Card က Screen ရဲ့ ၉၀% လောက်အထိ ယူထားပြီး ဘေးကို ၁၅px စီပဲ ချန်ပါမယ် */
+        padding: 0 50px;
+        gap: 25px;
+    }
+    
+    .card {
+        max-width: 100%; /* ဖုန်းမှာတော့ အပြည့်နီးပါးယူမှ ကြည့်ကောင်းပါတယ် */
+    }
+}
+
+/* Screen အရမ်းသေးတဲ့ ဖုန်းတွေအတွက် (iPhone SE) */
+@media (max-width: 360px) {
+    #projectGrid {
+        padding: 0 25px; /* Screen သေးရင် ဘေး Padding ကို နည်းနည်းပြန်လျှော့ပေးမယ် */
+    }
+}
+
+/* --- Sticky Bar Logic --- */
+.filter-sticky-bar {
+    position: sticky;
+    top: 65px; /* Navbar ရဲ့ အမြင့်ပေါ်မူတည်ပြီး ညှိပါ */
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+    padding: 12px 0;
+}
+
+.filter-inner-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+
+/* --- Search Wrapper --- */
+.search-wrapper {
+    position: relative;
+    flex: 1;
+    max-width: 450px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--tu-blue);
+    opacity: 0.6;
+}
+
+.search-wrapper input {
+    width: 100%;
+    padding: 12px 16px 12px 45px;
+    border-radius: 50px; /* Pill Shape */
+    border: 1.5px solid var(--tu-blue);
+    background: var(--bg-light);
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+.search-wrapper input:focus {
+    outline: none;
+    border-color: var(--tu-blue);
+    background: var(--white);
+    box-shadow: 0 0 0 4px rgba(0, 35, 71, 0.05);
+}
+
+/* --- Desktop Selects --- */
+.desktop-filters {
+    display: flex;
+    gap: 10px;
+}
+
+.smart-select {
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 1.5px solid var(--border);
+    background: var(--white);
+    color: var(--tu-blue);
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.smart-select:hover {
+    border-color: var(--tu-blue);
+}
+
+/* --- Mobile Filter Button --- */
+.mobile-filter-trigger {
+    display: none;
+    background: var(--tu-blue);
+    color: var(--tu-gold);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* --- Filter Drawer (Mobile Bottom Sheet) --- */
+.filter-drawer {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    background: var(--white);
+    z-index: 2001;
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 24px 24px 0 0;
+    box-shadow: var(--shadow);
+    padding-bottom: env(safe-area-inset-bottom); /* For iPhone notch */
+}
+
+.filter-drawer.active {
+    bottom: 0;
+}
+
+.filter-drawer-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 35, 71, 0.4);
+    backdrop-filter: blur(4px);
+    z-index: 2000;
+    display: none;
+}
+
+.filter-drawer-overlay.active {
+    display: block;
+}
+
+/* --- Drawer Contents --- */
+.drawer-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.drawer-header h3 {
+    font-size: 1.1rem;
+    color: var(--tu-blue);
+}
+
+.close-drawer {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.drawer-body {
+    padding: 24px 20px;
+}
+
+.filter-section-group {
+    margin-bottom: 24px;
+}
+
+.filter-section-group label {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+}
+
+.drawer-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.pill {
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 1.5px solid var(--border);
+    background: var(--bg-light);
+    color: var(--text-main);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.pill.active {
+    background: var(--tu-blue);
+    color: var(--tu-gold);
+    border-color: var(--tu-blue);
+}
+
+.drawer-footer {
+    padding: 16px 20px;
+    border-top: 1px solid var(--border);
+}
+
+.apply-btn {
+    width: 100%;
+    padding: 16px;
+    background: var(--tu-blue);
+    color: var(--tu-gold);
+    border: none;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* --- Responsive Layout --- */
+@media (max-width: 768px) {
+    .desktop-filters {
+        display: none !important;
+    }
+    .mobile-filter-trigger {
+        display: flex;
+    }
+    .search-wrapper {
+        max-width: 250px; /* ဖုန်းမှာဆိုရင် ၂၅၀ ဖိုးပဲ အကျယ်ပေးမယ် */
+        flex: 1; /* ဖုန်း screen သေးရင်တော့ ရှိတဲ့နေရာလေးထဲမှာ အချိုးကျအောင် flex ပြန်ပေးထားတာပါ */
+    
+}
+}
+/* --- Desktop View (Large Size Tuning) --- */
+@media (min-width: 769px) {
+    .filter-inner-container {
+        gap: 30px; /* Element တွေကြား အကွာအဝေးကို ပိုချဲ့လိုက်ပါတယ် */
+    }
+
+    /* Search Wrapper အကျယ်ကို ကြီးလိုက်ခြင်း */
+    .search-wrapper {
+        flex: 0 0 550px; /* အလျားကို 280px ကနေ 350px ထိ တိုးလိုက်ပါတယ် */
+        width: 550px;
+    }
+
+    /* Search Input ကို ပိုမြင့်ပြီး စာလုံးကြီးစေခြင်း */
+    .search-wrapper input {
+        padding: 15px 20px 15px 50px; /* အမြင့် (Padding) ကို တိုးလိုက်ပါတယ် */
+        font-size: 1.1rem; /* စာလုံးအရွယ်အစားကို ကြီးလိုက်ပါတယ် */
+        border-width: 2px; /* အနားသတ်ကို ပိုထင်ရှားစေပါတယ် */
+    }
+
+    .search-icon {
+        left: 20px;
+        font-size: 1.2rem; /* Icon ကိုလည်း ပိုကြီးအောင် လုပ်ထားပါတယ် */
+    }
+
+    /* Desktop Select Boxes (Filter ၂ ခု) ကို ကြီးစေခြင်း */
+    .desktop-filters {
+        gap: 15px;
+    }
+    .smart-select {
+        /* ဘေးဘယ်ညာ Padding ကို တိုးပြီး စာသားကို နေရာချန်ပေးလိုက်တာပါ */
+        padding: 12px 35px 12px 20px !important; 
+        
+        /* Frame ရဲ့ အကျယ်ကို အသေမထားဘဲ စာသားနဲ့အချိုးကျအောင် လုပ်ပါတယ် */
+        min-width: 180px; 
+        
+        /* စာလုံးအရွယ်အစားကို Frame နဲ့လိုက်အောင် ညှိတာပါ */
+        font-size: 1rem;
+        font-weight: 600;
+        
+        /* အနားသတ်ကွေးတာကို ပိုသိသာစေပြီး ခေတ်မီစေပါတယ် */
+        border-radius: 50px;
+        border: 2px solid #e2e8f0;
+        
+        /* Dropdown မြှားလေးနဲ့ စာသား မထပ်အောင် */
+        appearance: none;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23002347' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 15px center;
+        background-size: 16px;
+        
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    /* Hover လုပ်ရင် Frame လင်းလာအောင် */
+    .smart-select:hover {
+        border-color: #002347;
+        background-color: #f8fafc;
+    }
+    
+    /* --- Search Bar Frame ကိုလည်း ညှိခြင်း --- */
+    .search-wrapper input {
+        /* စာရိုက်တဲ့အခါ Frame နဲ့ မကပ်အောင် Padding တိုးထားပါတယ် */
+        padding: 14px 20px 14px 50px; 
+        font-size: 1rem;
+        border-radius: 50px;
+        border: 2px solid #e2e8f0;
+        width: 100%;
+    }
+}
+
+/* --- View Tabs Mobile Custom --- */
+.view-tabs-mobile {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* ဘယ်ညာ နှစ်ခြမ်းညီ */
+    gap: 10px;
+    background: #f1f5f9; /* Light grey background */
+    padding: 6px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+}
+
+.tab-btn-m {
+    padding: 12px;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: 0.3s all ease;
+}
+
+/* Active ဖြစ်တဲ့အခါ Theme အရ Blue & Gold ပြောင်းမယ် */
+.tab-btn-m.active {
+    background: var(--white);
+    color: var(--tu-blue);
+    box-shadow: 0 4px 10px rgba(0, 35, 71, 0.1);
+}
+
+.tab-btn-m i {
+    font-size: 1.1rem;
+}
+
+/* Mobile မှာ Pill ခလုတ်လေးတွေ ပိုလှအောင် */
+.drawer-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.pill {
+    padding: 8px 16px;
+    border-radius: 12px; /* အနည်းငယ် လေးထောင့်ဆန်ဆန် ကွေးညွှတ်မှု */
+    border: 1.5px solid #e2e8f0;
+    font-weight: 500;
+    color: #475569;
+}
+
+/* --- Filter Drawer ပွင့်လာသည့်အခါ Background ကို မနှိပ်နိုင်အောင် ပိတ်ထားခြင်း --- */
+body.drawer-open {
+    overflow: hidden; /* Drawer ပွင့်ချိန်မှာ အောက်က content တွေကို scroll ဆွဲမရအောင် ပိတ်ထားမည် */
+}
+
+/* --- Overlay ကို ပိုကြည်လင်စေရန် --- */
+.filter-drawer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* အမှောင်ရောင် ခပ်ပါးပါး */
+    backdrop-filter: blur(4px); /* နောက်ခံကို ဝါးစေသည် */
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+}
+
+.filter-drawer-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* --- Drawer ကို အောက်ခြေမှာ သေသပ်အောင် ပြင်ခြင်း --- */
+.filter-drawer {
+    position: fixed;
+    bottom: -100%; /* ပုံမှန်ဆိုရင် အောက်ထဲ ဖျောက်ထားမည် */
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #ffffff;
+    z-index: 2001;
+    border-radius: 25px 25px 0 0;
+    transition: bottom 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Animation ကို ပိုချောမွေ့စေသည် */
+    max-height: 85vh; /* Screen ရဲ့ ၈၅% ထက် မကျော်စေရန် */
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-drawer.active {
+    bottom: 0; /* ပွင့်လာသည့်အခါ အောက်ခြေတွင် ကပ်မည် */
+}
+
+/* --- Drawer Body ကို Scroll ဆွဲလို့ရအောင် လုပ်ခြင်း --- */
+.drawer-body {
+    padding: 20px;
+    overflow-y: auto; /* Content တွေများနေရင် drawer ထဲမှာတင် scroll ဆွဲနိုင်အောင် */
+    flex: 1;
+}
+
+/* Footer ကို အောက်မှာ အသေကပ်ထားရန် */
+.drawer-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
+    background: #fff;
+    padding-bottom: calc(15px + env(safe-area-inset-bottom)); /* iPhone notch များအတွက် */
+}
+
+/* Mobile View Tabs ထဲက Active ဖြစ်နေတဲ့ ခလုတ်အတွက် */
+.tab-btn-m.active {
+    background: var(--tu-blue) !important; /* မူရင်း Theme အပြာရောင် */
+    color: var(--tu-gold) !important;      /* မူရင်း Theme ရွှေရောင်စာသား */
+    box-shadow: 0 4px 12px rgba(0, 35, 71, 0.2);
+    border: none;
+}
+
+/* Active ဖြစ်နေတဲ့အခါ Icon အရောင်ကိုပါ ရွှေရောင်ပြောင်းရန် */
+.tab-btn-m.active i {
+    color: var(--tu-gold) !important;
+}
+
+/* Tab container လေးကို ပိုသေသပ်အောင် ညှိခြင်း */
+.view-tabs-mobile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    background: #f1f5f9;
+    padding: 5px;
+    border-radius: 14px;
+    margin-bottom: 10px;
+}
+
+/* Desktop View Switcher Styling */
+.desktop-view-switcher {
+    display: flex;
+    gap: 5px;
+    background: #f1f5f9;
+    padding: 4px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.view-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    color: #64748b;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+/* Active ဖြစ်တဲ့အခါ Theme Color (Blue & Gold) သုံးမယ် */
+.view-btn.active {
+    background: var(--tu-blue);
+    color: var(--tu-gold);
+    box-shadow: 0 4px 10px rgba(0, 35, 71, 0.15);
+}
+
+.view-btn:hover:not(.active) {
+    background: #e2e8f0;
+}
+
+/* --- Responsive: Mobile မှာ ဖျောက်ထားရန် --- */
+@media (max-width: 768px) {
+    .desktop-view-switcher {
+        display: none !important; /* Mobile မှာ လုံးဝ ဖျောက်ထားမယ် */
+    }
+}
+/* Desktop မှာ View Switcher ကို ပြရန် */
+@media (min-width: 769px) {
+    .desktop-view-switcher {
+        display: flex !important; /* သေချာပေါက် ပေါ်နေစေရန် */
+        gap: 5px;
+        background: #f1f5f9;
+        padding: 4px;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+        align-items: center;
+    }
+
+    .view-btn {
+        width: 38px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        background: transparent;
+        color: #64748b;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    /* Active State: Blue & Gold */
+    .view-btn.active {
+        background: var(--tu-blue) !important;
+        color: var(--tu-gold) !important;
+    }
+}
+
+/* Mobile မှာ Desktop Switcher ကို ဖျောက်ရန် */
+@media (max-width: 768px) {
+    .desktop-view-switcher {
+        display: none !important;
+    }
+    
+    .mobile-filter-trigger {
+        display: flex !important; /* Filter ခလုတ် ပေါ်စေရန် */
+    }
+}
+.filter-controls-group {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Dropdown တွေနဲ့ Switcher ကြား အကွာအဝေး */
+}
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 40px 0;
+    padding: 20px;
+}
+
+/* --- Individual Pagination Buttons --- */
+.pagination button, 
+.pagination a {
+    min-width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--border-color); /* အရင် Root ထဲက border color */
+    background-color: var(--white);
+    color: var(--tu-blue);
+    font-weight: 700;
+    font-size: 0.95rem;
+    border-radius: 12px; /* ခပ်ဝိုင်းဝိုင်းလေး */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    box-shadow: var(--shadow-sm);
+}
+
+/* --- Hover Effect --- */
+.pagination button:hover:not(.active) {
+    border-color: var(--tu-blue);
+    background-color: #f0f4f8;
+    transform: translateY(-2px);
+    color: var(--tu-blue);
+}
+
+/* --- Active Page Style (TU Blue & Gold) --- */
+.pagination button.active, 
+.pagination .current {
+    background-color: var(--tu-blue) !important;
+    color: var(--tu-gold) !important;
+    border-color: var(--tu-blue) !important;
+    box-shadow: 0 4px 12px rgba(0, 35, 71, 0.3);
+    transform: scale(1.05);
+}
+
+/* --- Disabled / Ellipsis (...) Style --- */
+.pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* --- Prev/Next Buttons (စာသားပါရင် ပိုကျယ်စေရန်) --- */
+.pagination .prev-btn, 
+.pagination .next-btn {
+    padding: 0 20px;
+    width: auto;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+/* --- Mobile Responsive --- */
+@media (max-width: 600px) {
+    .pagination {
+        gap: 5px;
+    }
+    .pagination button {
+        min-width: 38px;
+        height: 38px;
+        font-size: 0.85rem;
+        border-radius: 8px;
+    }
+}
+
+/* List View styling */
+.list-view {
+    display: flex !important;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.list-item {
+    display: flex;
+    background: white;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.list-item:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-color: #3b82f6;
+}
+
+.list-img {
+    width: 120px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.list-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+    color: #1e293b;
+}
+
+.list-year {
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+/* Tabs Styling */
+.view-tabs {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.tab-btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    background: white;
+    cursor: pointer;
+}
+
+.tab-btn.active {
+    background: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="my">
+    <!DOCTYPE html>
+    <html lang="my">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Project Detail | TU Monywa</title>
+        
+        <link rel="stylesheet" href="style.css">  
+        <link rel="stylesheet" href="detail.css"> 
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </head>
+<body class="detail-view">
+
+    <div id="loading-overlay">
+        <div class="loading-container">
+            <div class="loading-image"></div>
+            
+            <span class="loading-text">TU - MONYWA</span>
+            <div class="loading-bar-container">
+                <div class="loading-bar-fill"></div>
+            </div>
+            <p class="loading-sub">RESEARCH & PROJECT HUB</p>
+        </div>
+    </div>
+
+    <nav class="top-nav">
+        <a href="index.html" class="back-link">
+            <span class="back-icon"><i class="fas fa-chevron-left"></i></span>
+            <span class="back-text">ရှေ့စာမျက်နှာသို့ပြန်ရန်</span>
+        </a>
+    </nav>
+    <div class="detail-container" id="main-content" style="display: none;">
+            
+        <div class="major-badge-wrapper">
+            <div class="header-flex">
+            <div class="major-badge" id="p-major">MAJOR</div>
+            <header class="detail-header">
+                <h1 id="p-title">Project Title</h1>
+            </header>
+        </div>
+        <div class="p-sub-info" id="p-sub-info">Year: --- | Rating: 0⭐</div>
+        </div>
+
+        <div class="detail-view">
+    
+            <div class="detail-grid">
+                <section class="detail-card slider-card">
+                    <h3><i class="fas fa-images"></i> Project Showcase</h3>
+                    <div class="slider-container">
+                        <button class="slider-btn prev" onclick="moveSlide(-1)">❮</button>
+                        <div class="project-image-preview" id="p-img-wrapper">
+                            </div>
+                        <button class="slider-btn next" onclick="moveSlide(1)">❯</button>
+                    </div>
+                </section>
+    
+                <section class="detail-card">
+                    <h3><i class="fas fa-users"></i> အဖွဲ့၀◌င် ကျောင်းသား/သူများ (Students)</h3>
+                    <div id="p-authors" class="author-container"></div>
+                </section>
+    
+                <section class="detail-card">
+                    <h3><i class="fas fa-info-circle"></i> နိဒါန်း (Introduction)</h3>
+                    <p id="p-intro" class="text-content"></p>
+                </section>
+    
+                <section class="detail-card">
+                    <h3><i class="fas fa-bullseye"></i> ရည်ရွယ်ချက် (Aim)</h3>
+                    <ul id="p-aim" class="process-list"></ul>
+                </section>
+    
+                <section class="detail-card">
+                    <h3><i class="fas fa-book"></i> သီအိုရီ (Theory)</h3>
+                    <p id="p-theory" class="text-content"></p>
+                </section>
+    
+                <section class="detail-card">
+                    <h3><i class="fas fa-microchip"></i> လုပ်ဆောင်ပုံအဆင့်ဆင့် (Process)</h3>
+                    <ul id="p-process" class="process-list"></ul>
+                </section>
+    
+                <section class="detail-card full-width">
+                    <h3><i class="fas fa-flag-checkered"></i> နိဂုံး (Conclusion)</h3>
+                    <p id="p-con" class="text-content"></p>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+<footer class="main-footer">
+    <div class="footer-top">
+        <div class="footer-grid">
+            <div class="footer-col about-col">
+                <h3 class="footer-title">About Showcase</h3>
+                <p>ဤစာမျက်နှာသည် နည်းပညာတက္ကသိုလ် (မုံရွာ) မှ ကျောင်းသား၊ ကျောင်းသူများ၏ လက်တွေ့အသုံးချ အင်ဂျင်နီယာဘာသာရပ်ဆိုင်ရာ ပရောဂျက်များကို စုစည်းဖော်ပြထားခြင်း ဖြစ်သည်။</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col contact-col">
+                <h3 class="footer-title">Contact Info</h3>
+                <ul class="contact-list">
+                    <li><i class="fas fa-university"></i> Technological University (Monywa), Sagaing Region</li>
+                    <li><i class="fas fa-envelope"></i> info@tumonywa.edu.mm</li>
+                    <li><i class="fas fa-phone"></i> +95 71 23456</li>
+                </ul>
+            </div>
+
+            <div class="footer-col motto-col">
+                <h3 class="footer-title">Our Vision</h3>
+                <p class="motto-text">"Empowering Tomorrow through Engineering Excellence"</p>
+              
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="bottom-container">
+            <p>Copyright &copy; <span id="current-year"></span> Technological University(Monywa). All Rights Reserved.</p>
+            <p class="dev-info">Designed & Developed by <span class="author-highlight">Mg Aung Ko Phyoe (EC)</span></p>
+        </div>
+    </div>
+</footer>
+</html>
