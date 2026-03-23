@@ -459,53 +459,19 @@
 /* --- Responsive Layout (Mobile View - Short Search Bar) --- */
 
 
-
 @media (max-width: 768px) {
-    .filter-inner-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between; /* Search နဲ့ Filter ကို ဘေးတစ်ဖက်စီ ကပ်ထားမယ် */
-        width: 100%;
-        padding: 10px 15px;
+    .desktop-filters {
+        display: none !important;
     }
-
-    .search-wrapper {
-        /* Search Bar ကို screen ရဲ့ 70% ထက် ပိုမကျယ်အောင် ကန့်သတ်လိုက်တာပါ */
-        flex: 0 0 70%; 
-        max-width: 70%;
-        position: relative;
-    }
-
-    .search-wrapper input {
-        width: 100%;
-        padding: 10px 15px 10px 40px;
-        font-size: 0.9rem;
-        border-radius: 50px;
-        border: 1.5px solid #e2e8f0;
-        background-color: #f8fafc;
-    }
-
-    /* ညာဘက်ဆုံးမှာ ရှိနေမယ့် Filter ခလုတ် */
     .mobile-filter-trigger {
         display: flex;
-        flex: 0 0 45px; /* ခလုတ်အတွက် နေရာသီးသန့် ချန်မယ် */
-        height: 45px;
-        width: 45px;
-        justify-content: center;
-        align-items: center;
-        background: #002347;
-        color: white;
-        border-radius: 12px; /* အဝိုင်းမဟုတ်ဘဲ လေးထောင့်အနားကွေး ပုံစံ */
-        cursor: pointer;
     }
-
-    .search-icon {
-        left: 15px;
-        font-size: 0.9rem;
-        color: #64748b;
-    }
+    .search-wrapper {
+        max-width: 200px; /* ဖုန်းမှာဆိုရင် ၂၅၀ ဖိုးပဲ အကျယ်ပေးမယ် */
+        flex: 1; /* ဖုန်း screen သေးရင်တော့ ရှိတဲ့နေရာလေးထဲမှာ အချိုးကျအောင် flex ပြန်ပေးထားတာပါ */
+    
 }
-
+}
 
 
 
