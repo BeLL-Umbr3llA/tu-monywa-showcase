@@ -457,76 +457,60 @@
 /* --- Responsive Layout --- */
 /* --- Responsive Layout (Mobile View) --- */
 /* --- Responsive Layout (Mobile View - Short Search Bar) --- */
-
-/* --- Mobile View Layout (768px အောက်) --- */
 @media (max-width: 768px) {
-    .filter-sticky-bar {
-        background: #ffffff;
-        padding: 10px 15px;
-        border-bottom: 1px solid #eee;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-    }
-
+    /* ၁။ Container ကို Flex ပေးပြီး ဘေးတိုက်စီမယ် */
     .filter-inner-container {
-        display: flex;
+        display: flex !important;
         align-items: center;
-        justify-content: space-between; /* Search နဲ့ Button ကို တစ်ဖက်စီ ခွဲမယ် */
-        gap: 12px;
+        justify-content: space-between; /* Search ဘယ်၊ Button ညာ ခွဲမယ် */
+        gap: 10px;
+        padding: 10px 15px;
+        width: 100%;
     }
 
-    /* --- Search Bar ကို သေသပ်အောင်လုပ်ခြင်း --- */
+    /* ၂။ Search Bar ကို အကျယ် ကန့်သတ်မယ် */
     .search-wrapper {
+        flex: 0 1 200px; /* အများဆုံး 200px ထိပဲ ယူမယ် */
         position: relative;
-        flex: 1; /* လက်ရှိနေရာလွတ်ကို ယူမယ် */
-        max-width: 220px; /* အရမ်းကြီးမသွားအောင် ကန့်သတ်မယ် */
+        display: block !important;
     }
 
     .search-wrapper input {
         width: 100%;
-        padding: 10px 15px 10px 40px;
-        border-radius: 12px; /* အနားသတ်ကို ခေတ်မီအောင် ဝိုင်းမယ် */
-        border: 1.5px solid #f1f5f9;
-        background-color: #f8fafc; /* ခပ်ဖျော့ဖျော့အရောင်လေးနဲ့ ပိုလှပါတယ် */
-        font-size: 0.9rem;
-        transition: all 0.3s ease;
-    }
-
-    .search-wrapper input:focus {
-        outline: none;
-        border-color: #002347;
-        background-color: #ffffff;
-        box-shadow: 0 4px 12px rgba(0, 35, 71, 0.08);
+        height: 40px;
+        padding: 0 10px 0 35px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+        font-size: 14px;
+        background: #f9f9f9;
     }
 
     .search-icon {
         position: absolute;
-        left: 15px;
+        left: 10px;
         top: 50%;
         transform: translateY(-50%);
-        color: #94a3b8;
-        font-size: 0.9rem;
+        font-size: 14px;
+        color: #888;
     }
 
-    /* --- Drawer Button (Filter Button) ကို ပိုလှအောင်လုပ်ခြင်း --- */
+    /* ၃။ Drawer Button (Filter Button) */
     .mobile-filter-trigger {
-        display: flex;
+        display: flex !important; /* ဒါက Drawer ဖွင့်မယ့် ခလုတ်ပါ */
         align-items: center;
         justify-content: center;
-        width: 42px;
-        height: 42px;
-        background-color: #002347; /* Engineering Theme နဲ့ လိုက်တဲ့ အမှောင်ရောင် */
-        color: #ffffff;
-        border-radius: 12px;
+        width: 40px;
+        height: 40px;
+        background: #002347;
+        color: white;
+        border-radius: 10px;
+        flex-shrink: 0; /* ပုံစံမပျက်အောင် */
         cursor: pointer;
-        flex-shrink: 0; /* ပုံစံမပျက်အောင် ထိန်းထားမယ် */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.2s active;
     }
 
-    .mobile-filter-trigger:active {
-        transform: scale(0.95); /* နှိပ်လိုက်ရင် တုန်သွားတဲ့ effect လေး */
+    /* Desktop က Filter တွေကို ဖျောက်ထားမယ် */
+    .desktop-filters {
+        display: none !important;
     }
 }
 
